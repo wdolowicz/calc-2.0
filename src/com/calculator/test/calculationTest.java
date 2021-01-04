@@ -1,16 +1,23 @@
 package com.calculator.test;
 
 import com.calculator.modules.CalculatorModule;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.testng.Assert.assertEquals;
+
+import org.apache.commons.exec.util.StringUtils;
+import org.assertj.core.api.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.openqa.selenium.By;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author Witold Dolowicz on 16.12.2020
@@ -23,6 +30,7 @@ public class calculationTest {
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
     private CalculatorModule calculatorModule;
+    private List list;
 
     @BeforeTest(alwaysRun = true)
     public void setUp() throws Exception {
@@ -61,14 +69,11 @@ public class calculationTest {
     }
 
     @Test(priority = 4)
-    public void mathHistoryTest(){
+    public void mathHistoryTest() {
         calculatorModule.clickHistoryDropdown();
-        assertThat(calculatorModule.firstEquationVisible()).isTrue();
-        assertThat(calculatorModule.secondEquationVisible()).isTrue();
-        assertThat(calculatorModule.thirdEquationVisible()).isTrue();
-        assertThat(calculatorModule.firstResultVisible()).isTrue();
-        assertThat(calculatorModule.secondResultVisible()).isTrue();
-        assertThat(calculatorModule.thirdResultVisible()).isTrue();
+        String[] expected = {"= 9", "sqrt(81)", "= -1", "cos(pi)", "= 34990", "35*999+(100/4)"};
+        List<WebElement> historyList = driver.findElements(By.xpath("//div[@id='histframe']/ul/li"));
+        
     }
 
     @AfterClass(alwaysRun = true)

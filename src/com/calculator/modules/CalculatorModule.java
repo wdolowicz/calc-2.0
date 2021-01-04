@@ -28,8 +28,8 @@ public final class CalculatorModule {
     @FindBy(xpath = "//div[@id='hist']/button[2]/span")
     private WebElement historyDropdown;
 
-    @FindBy(how = How.ID, using = "histframe")
-    private WebElement historyContent;
+    @FindBy(xpath = "//div[@id='histframe']/ul/li")
+    public WebElement historyContent;
 
     @FindBy(xpath = "//div[@id='histframe']/ul/li[1]/p[2]")
     private WebElement firstEquation;
@@ -72,6 +72,11 @@ public final class CalculatorModule {
     @Step
     public void clickHistoryDropdown() {
         historyDropdown.click();
+    }
+
+    @Step
+    public WebElement getHistoryContent() {
+        return historyContent;
     }
 
     @Step

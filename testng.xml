@@ -3,7 +3,7 @@
 <suite name="Web2.0 Calc Tests" verbose="5" parallel="classes" thread-count="1">
     <test name="CalculationTest">
         <packages>
-            <package name="com.calculator"/>
+            <package name="com.calculator.test"/>
         </packages>
     </test>
 </suite>
