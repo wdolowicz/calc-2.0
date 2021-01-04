@@ -1,4 +1,4 @@
-# saucelabstest
+# calc 2.0 tests
 
 This repo contains java tests for web2.0calc.com. Test suite consists of couple equations.
 
