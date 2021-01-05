@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * @author Witold Dołowicz on 03.01.2021
@@ -48,6 +49,8 @@ public final class CalculatorModule {
 
     @FindBy(xpath = "//div[@id='histframe']/ul/li[3]/p[1]")
     private WebElement thirdResult;
+
+
 
     @Step
     public void clickEquals() {
